@@ -5,7 +5,7 @@ A high-performance, fully customizable Flutter package for on-device real-time f
 Guarantees active human presence through customizable challenges (blink, smile, turn head) and **always captures a razor-sharp, frontal, upright reference photo** for biometric verification and KYC.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/alaaqutishat/face_liveness_check/main/doc/images/showcase_banner.jpg" alt="Face Liveness Check Showcase" width="100%" />
+  <img src="doc/images/showcase_banner.jpg" alt="Face Liveness Check Showcase" width="100%" />
 </p>
 
 ---
@@ -25,7 +25,7 @@ Guarantees active human presence through customizable challenges (blink, smile, 
 ## 📐 Architecture & Pipeline
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/alaaqutishat/face_liveness_check/main/doc/images/architecture_workflow.jpg" alt="Face Liveness Check & 1:1 Biometric Matching Pipeline" width="100%" />
+  <img src="doc/images/architecture_workflow.jpg" alt="Face Liveness Check & 1:1 Biometric Matching Pipeline" width="100%" />
 </p>
 
 ---
