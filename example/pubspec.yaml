@@ -1,5 +1,5 @@
 name: face_liveness_check_example
-description: Demonstrates how to use the face_liveness_check plugin.
+description: Demonstrates how to use the face_liveness_check plugin with configuration, live detection, and face matching.
 publish_to: 'none'
 version: 1.0.0+1
 

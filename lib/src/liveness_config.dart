@@ -26,6 +26,9 @@ class LivenessConfig {
   /// captured when the user's head is straight, centered, and eyes are open.
   final List<LivenessStepItem> steps;
 
+  /// Language code identifier (e.g. 'en', 'ar').
+  final String languageCode;
+
   // ---------------------------------------------------------------------------
   // Translations & Instructions (Fully Localizable)
   // ---------------------------------------------------------------------------
@@ -122,6 +125,7 @@ class LivenessConfig {
       LivenessStepItem.turnHeadLeft,
       LivenessStepItem.turnHeadRight,
     ],
+    this.languageCode = 'en',
     // Texts
     this.titleText = "Face Verification",
     this.blinkInstruction = "Please Blink Your Eyes",
@@ -191,6 +195,7 @@ class LivenessConfig {
             LivenessStepItem.turnHeadLeft,
             LivenessStepItem.turnHeadRight,
           ],
+      languageCode: 'ar',
       titleText: "التحقق من حيوية الوجه",
       blinkInstruction: "يرجى أن ترمش بعينيك",
       smileInstruction: "يرجى أن تبتسم",

@@ -47,6 +47,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera access is required for facial liveness verification.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo library access is needed to select a comparison photo.</string>
 	<key>NSBonjourServices</key>
 	<array>
 		<string>_dartVmService._tcp</string>
