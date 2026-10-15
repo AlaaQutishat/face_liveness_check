@@ -255,6 +255,45 @@ The method `FaceLivenessCheck.start(context)` returns a `LivenessResult?`:
 
 ---
 
+## 🔍 On-Device 1:1 Face Matching (`FaceMatchService`)
+
+The plugin includes a complete on-device 1:1 facial matching engine powered by MobileFaceNet (TFLite) and Google ML Kit Face Detection. It lets you compare the verified liveness photo against an ID document or selfie photo directly, with zero external dependencies!
+
+### Quick Comparison:
+```dart
+import 'package:face_liveness_check/face_liveness_check.dart';
+
+// Compare two face images
+final result = await FaceLivenessCheck.compareFaces(
+  livenessImagePath: livenessResult.imagePath!,
+  comparisonImagePath: idCardOrSelfiePath,
+);
+
+print('Match Level: ${result.matchLevel}%'); // e.g. 92%
+print('Is Match: ${result.isMatch}');         // true (if >= 65%)
+print('Message: ${result.message}');
+```
+
+### Pick from Camera or Gallery & Match:
+```dart
+final matchService = FaceMatchService();
+
+// Pick and compare in one step
+final result = await matchService.pickAndCompare(
+  livenessImagePath: livenessResult.imagePath!,
+  source: ImageSource.camera, // or ImageSource.gallery
+);
+
+if (result != null) {
+  print('Similarity Score: ${result.matchLevel}%');
+}
+
+// Don't forget to dispose
+await matchService.dispose();
+```
+
+---
+
 ## 🛠️ Example App
 
 Check out the fully functional example application in the [`example/`](example/) directory showcasing custom colors, dynamic step toggling, Arabic localization presets, and previewing the captured reference photo.
