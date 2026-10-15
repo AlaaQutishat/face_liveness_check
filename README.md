@@ -4,6 +4,10 @@ A high-performance, fully customizable Flutter package for on-device real-time f
 
 Guarantees active human presence through customizable challenges (blink, smile, turn head) and **always captures a razor-sharp, frontal, upright reference photo** for biometric verification and KYC.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/alaaqutishat/face_liveness_check/main/doc/images/showcase_banner.jpg" alt="Face Liveness Check Showcase" width="100%" />
+</p>
+
 ---
 
 ## ✨ Features
@@ -15,6 +19,14 @@ Guarantees active human presence through customizable challenges (blink, smile, 
 - **🌍 Full Localization & Translation:** Customize every single instruction, hint, button, and error state. Includes a pre-built `LivenessConfig.arabic()` preset out of the box.
 - **🚀 One-Line Launch:** Launch effortlessly using `FaceLivenessCheck.start(context)` or embed `FaceLivenessScreen` into your custom routes.
 - **🛡️ Battle-Tested Architecture:** Camera stream pipeline optimized with cached sensor orientation, single-plane memory buffers, and motion-blur stabilization frames.
+
+---
+
+## 📐 Architecture & Pipeline
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/alaaqutishat/face_liveness_check/main/doc/images/architecture_workflow.jpg" alt="Face Liveness Check & 1:1 Biometric Matching Pipeline" width="100%" />
+</p>
 
 ---
 
