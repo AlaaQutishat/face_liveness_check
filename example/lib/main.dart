@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:face_liveness_check/face_liveness_check.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 
 void main() {
   runApp(const FaceLivenessExampleApp());
@@ -46,6 +47,7 @@ class LivenessHomeScreen extends StatefulWidget {
 
 class _LivenessHomeScreenState extends State<LivenessHomeScreen> {
   final FaceMatchService _matchService = FaceMatchService();
+  final ImagePicker _imagePicker = ImagePicker();
 
   // Active configuration
   LivenessConfig _config = const LivenessConfig(
@@ -219,11 +221,17 @@ class _LivenessHomeScreenState extends State<LivenessHomeScreen> {
 
   Future<void> _pickAndMatch(ImageSource source) async {
     try {
-      final pickedPath = await _matchService.pickImage(source: source);
-      if (pickedPath == null || !mounted) return;
+      final pickedFile = await _imagePicker.pickImage(
+        source: source,
+        preferredCameraDevice: CameraDevice.front,
+        maxWidth: 1200,
+        maxHeight: 1200,
+        imageQuality: 92,
+      );
+      if (pickedFile == null || !mounted) return;
 
       setState(() {
-        _comparisonImagePath = pickedPath;
+        _comparisonImagePath = pickedFile.path;
         _matchResult = null;
         _feedbackMessage = 'Extracting face & analyzing similarity...';
         _isMatching = true;
@@ -231,7 +239,7 @@ class _LivenessHomeScreenState extends State<LivenessHomeScreen> {
 
       final result = await _matchService.compare(
         livenessImagePath: _lastResult!.imagePath!,
-        comparisonImagePath: pickedPath,
+        comparisonImagePath: pickedFile.path,
       );
 
       if (!mounted) return;

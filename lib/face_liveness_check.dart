@@ -6,7 +6,6 @@ import 'src/face_liveness_screen.dart';
 import 'src/face_match_service.dart';
 import 'src/liveness_config.dart';
 
-export 'package:image_picker/image_picker.dart' show ImageSource, CameraDevice;
 export 'src/face_liveness_screen.dart';
 export 'src/face_match_service.dart';
 export 'src/liveness_config.dart';

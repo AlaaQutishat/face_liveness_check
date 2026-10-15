@@ -3,7 +3,6 @@ import 'dart:math' as math;
 
 import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 import 'package:image/image.dart' as image_lib;
-import 'package:image_picker/image_picker.dart';
 import 'package:tflite_flutter/tflite_flutter.dart';
 
 /// Service providing on-device 1:1 facial matching using MobileFaceNet TFLite
@@ -21,7 +20,6 @@ class FaceMatchService {
   final int matchThreshold;
 
   final FaceDetector _faceDetector;
-  final ImagePicker _imagePicker = ImagePicker();
   Interpreter? _interpreter;
 
   FaceMatchService({
@@ -76,53 +74,6 @@ class FaceMatchService {
       message: isMatch ? 'Images are similar.' : 'Images do not match.',
       qualityNote: qualityNotes.isEmpty ? null : qualityNotes,
     );
-  }
-
-  /// Helper to pick an image from camera or gallery and immediately run face matching.
-  Future<FaceMatchResult?> pickAndCompare({
-    required String livenessImagePath,
-    required ImageSource source,
-    CameraDevice preferredCameraDevice = CameraDevice.front,
-    double? maxWidth = 1200,
-    double? maxHeight = 1200,
-    int? imageQuality = 92,
-  }) async {
-    final file = await _imagePicker.pickImage(
-      source: source,
-      preferredCameraDevice: preferredCameraDevice,
-      maxWidth: maxWidth,
-      maxHeight: maxHeight,
-      imageQuality: imageQuality,
-      requestFullMetadata: false,
-    );
-
-    if (file == null) {
-      return null;
-    }
-
-    return compare(
-      livenessImagePath: livenessImagePath,
-      comparisonImagePath: file.path,
-    );
-  }
-
-  /// Helper to pick a photo from camera or gallery.
-  Future<String?> pickImage({
-    required ImageSource source,
-    CameraDevice preferredCameraDevice = CameraDevice.front,
-    double? maxWidth = 1200,
-    double? maxHeight = 1200,
-    int? imageQuality = 92,
-  }) async {
-    final file = await _imagePicker.pickImage(
-      source: source,
-      preferredCameraDevice: preferredCameraDevice,
-      maxWidth: maxWidth,
-      maxHeight: maxHeight,
-      imageQuality: imageQuality,
-      requestFullMetadata: false,
-    );
-    return file?.path;
   }
 
   /// Releases resources (interpreter and face detector).

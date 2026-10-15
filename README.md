@@ -274,22 +274,23 @@ print('Is Match: ${result.isMatch}');         // true (if >= 65%)
 print('Message: ${result.message}');
 ```
 
-### Pick from Camera or Gallery & Match:
+### Comparing Two Photos:
 ```dart
 final matchService = FaceMatchService();
 
-// Pick and compare in one step
-final result = await matchService.pickAndCompare(
-  livenessImagePath: livenessResult.imagePath!,
-  source: ImageSource.camera, // or ImageSource.gallery
-);
+try {
+  // Compare the liveness reference photo against an ID photo or selfie
+  final result = await matchService.compare(
+    livenessImagePath: livenessResult.imagePath!,
+    comparisonImagePath: idPhotoPath,
+  );
 
-if (result != null) {
-  print('Similarity Score: ${result.matchLevel}%');
+  print('Match Level: ${result.matchLevel}%'); // e.g. 92%
+  print('Is Match: ${result.isMatch}');         // true (>= 65%)
+  print('Message: ${result.message}');
+} finally {
+  await matchService.dispose();
 }
-
-// Don't forget to dispose
-await matchService.dispose();
 ```
 
 ---
