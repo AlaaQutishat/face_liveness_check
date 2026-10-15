@@ -19,6 +19,23 @@ Guarantees active human presence through customizable challenges (blink, smile, 
 - **🌍 Full Localization & Translation:** Customize every single instruction, hint, button, and error state. Includes a pre-built `LivenessConfig.arabic()` preset out of the box.
 - **🚀 One-Line Launch:** Launch effortlessly using `FaceLivenessCheck.start(context)` or embed `FaceLivenessScreen` into your custom routes.
 - **🛡️ Battle-Tested Architecture:** Camera stream pipeline optimized with cached sensor orientation, single-plane memory buffers, and motion-blur stabilization frames.
+- **💰 100% Free & Open-Source:** Zero per-check fees, zero subscriptions, and zero backend maintenance costs.
+
+---
+
+## 💡 Why This Plugin? (Free & Unlimited vs. Cloud KYC)
+
+Commercial identity verification APIs (AWS Rekognition, Onfido, Sumsub, Jumio) typically charge **$0.10 to $0.50+ per check**. For an application with 20,000 users, that quickly reaches **$2,000–$10,000+ per month** in recurring API fees.
+
+`face_liveness_check` delivers a high-accuracy, on-device alternative completely free of charge:
+
+| Capability | Commercial Cloud KYC (Onfido, Sumsub, AWS) | **`face_liveness_check`** |
+| :--- | :--- | :--- |
+| **Cost** | 💸 **$0.10 – $0.50+ per verification** | 💚 **100% Free & Open-Source ($0 forever)** |
+| **Scalability** | 📈 Costs scale linearly with your user base | 🚀 **Unlimited checks with zero added cost** |
+| **Data Privacy & GDPR** | ⚠️ Biometric face photos sent to 3rd-party servers | 🛡️ **100% Private (Data never leaves device)** |
+| **Offline Operation** | ❌ Fails without high-speed internet | ⚡ **Works 100% offline with zero latency** |
+| **Integration** | ⏳ Complex API keys, backend webhooks, SDKs | 📱 **Pure Flutter — single line to launch** |
 
 ---
 
